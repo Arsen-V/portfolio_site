@@ -1,0 +1,270 @@
+/* ============================================================
+   Portfolio stylesheet
+   Palette, type, and layout tokens live here. Edit these first.
+   ============================================================ */
+
+:root {
+  --paper:     #FBFAF8;
+  --ink:       #191C20;
+  --ink-soft:  #646B73;
+  --rule:      #E2E0DC;
+  --signal:    #1F4BA8;
+  --tag-bg:    #EFEEEA;
+
+  --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body:    "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --measure: 40rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:    #101215;
+    --ink:      #E8E6E1;
+    --ink-soft: #9198A1;
+    --rule:     #2A2E34;
+    --signal:   #7FA8F5;
+    --tag-bg:   #1C2026;
+  }
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+  max-width: var(--measure);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  font-synthesis: none;
+}
+
+/* ---------- Links ---------- */
+
+a {
+  color: var(--signal);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--signal) 35%, transparent);
+}
+
+a:hover { border-bottom-color: var(--signal); }
+
+a:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Masthead ---------- */
+
+.masthead { margin-bottom: 3rem; }
+
+.name {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 1.5rem;
+}
+
+/* The record block — the signature element.
+   Metadata rows, monospace, hairline rule down the left. */
+.record {
+  border-left: 2px solid var(--signal);
+  padding-left: 1.125rem;
+  margin: 0 0 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.9;
+}
+
+.record div {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.record dt {
+  flex: 0 0 8.5rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.record dd { margin: 0; }
+
+/* ---------- Navigation ---------- */
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+
+nav a {
+  border-bottom: none;
+  padding: 0.35rem 0;
+}
+
+nav a:hover { border-bottom: 1px solid var(--signal); }
+
+nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+/* ---------- Sections ---------- */
+
+section { margin-top: 3.5rem; }
+
+h2 {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  margin: 0 0 1.75rem;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin: 0 0 0.4rem;
+}
+
+p { margin: 0 0 1.1rem; }
+
+/* ---------- Entries (projects, roles, posts) ---------- */
+
+.entry { margin-bottom: 2.75rem; }
+.entry:last-child { margin-bottom: 0; }
+
+/* Domain tag — encodes what the work is, not decoration */
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--tag-bg);
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+  margin-bottom: 0.7rem;
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.75rem;
+}
+
+.stack {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin: 0.75rem 0 0;
+}
+
+ul {
+  padding-left: 1.1rem;
+  margin: 0 0 1.1rem;
+}
+
+li { margin-bottom: 0.4rem; }
+
+/* ---------- Figures ---------- */
+
+figure {
+  margin: 1.75rem 0;
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+}
+
+figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin-top: 0.6rem;
+}
+
+/* ---------- Code ---------- */
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--tag-bg);
+  padding: 0.1em 0.35em;
+  border-radius: 2px;
+}
+
+pre {
+  background: var(--tag-bg);
+  padding: 1rem;
+  border-radius: 3px;
+  overflow-x: auto;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+footer p { margin: 0; }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 34rem) {
+  body { padding: 2.5rem 1.25rem 4rem; }
+  .name { font-size: 1.5rem; }
+  .record div { flex-direction: column; gap: 0; margin-bottom: 0.6rem; }
+  .record dt { flex: none; }
+  nav { gap: 0 1.1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
