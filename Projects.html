@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — YOUR NAME</title>
+<meta name="description" content="Security engineering projects: vulnerability automation, AI red teaming, and a hardened CI/CD pipeline.">
+
+<meta property="og:title" content="Projects — YOUR NAME">
+<meta property="og:description" content="Security engineering projects: vulnerability automation, AI red teaming, and a hardened CI/CD pipeline.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231F4BA8'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <h1 class="name">Projects</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html" aria-current="page">Projects</a>
+    <a href="writing.html">Writing</a>
+    <a href="resume.pdf">Résumé</a>
+    <a href="https://github.com/YOURUSERNAME">GitHub</a>
+    <a href="https://linkedin.com/in/YOURPROFILE">LinkedIn</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============================================================
+       PROJECT 1
+       ============================================================ -->
+  <section id="risk-pipeline">
+    <h2>Vulnerability management</h2>
+
+    <h3>Automated vulnerability risk-acceptance pipeline</h3>
+    <p class="meta">Built at ElevateBio · Jun–Aug 2026</p>
+
+    <p><strong>The problem.</strong>
+      Two scanners produced overlapping vulnerability findings with no shared identifier and no
+      concept of an SLA breach. Every quarter someone had to pull both lists by hand, reconcile
+      them, decide what could be risk-accepted, and write a justification for each one. With an
+      ISO 27001 audit coming, the backlog was in the thousands and the manual approach didn't scale.
+    </p>
+
+    <p><strong>What I built.</strong>
+      A Python pipeline that runs weekly on GitHub Actions:
+    </p>
+    <ul>
+      <li>Pulls findings from CrowdStrike Falcon Spotlight and Vanta over OAuth, handling token
+          refresh, rate-limit retries, and pagination</li>
+      <li>Merges and deduplicates across both sources</li>
+      <li>Enriches each CVE with exploitability metadata and scores it against a CVSS-vector rubric
+          — internet exposure, attack vector, privileges required, user interaction, exploit status,
+          CISA KEV membership</li>
+      <li>Auto-generates risk-acceptance justifications naming the specific compensating control
+          (Palo Alto NGFW, CrowdStrike EDR/ITP, Netskope web filtering)</li>
+      <li>Flags actively exploited criticals and CISA KEV entries as patch-now rather than
+          accepting them</li>
+    </ul>
+
+    <!-- Replace with your Excalidraw export.
+         Draw: Spotlight API + Vanta API -> merge/dedupe -> enrich -> score
+         -> {risk accept | patch now} -> report. Export PNG to img/. -->
+    <figure>
+      <img src="img/risk-pipeline-architecture.png" alt="Pipeline architecture: two vulnerability sources are pulled over OAuth, merged and deduplicated, enriched with CVE metadata, scored against a rubric, then split into risk-accepted and patch-now outputs.">
+      <figcaption>Pipeline architecture.</figcaption>
+    </figure>
+
+    <p><strong>Outcome.</strong>
+      Risk-accepted 1,611 vulnerabilities ahead of the ISO 27001 audit with a written, auditable
+      justification attached to each, and separated out 370 that needed patching instead.
+    </p>
+
+    <p><strong>Decisions and tradeoffs.</strong>
+      <!-- Write 3–5 sentences. Candidates: why GitHub Actions over the vendor's own
+           automation tool (pagination limits); why a CVSS-vector rubric rather than raw
+           CVSS score; why you enriched from a CVE dataset instead of NVD; what you'd
+           change if you rebuilt it. This section is what separates you from someone
+           who followed a tutorial — don't skip it. -->
+      TODO
+    </p>
+
+    <p class="stack">Python · GitHub Actions · CrowdStrike Falcon Spotlight API · Vanta API · CVSS · CISA KEV</p>
+  </section>
+
+  <!-- ============================================================
+       PROJECT 2
+       ============================================================ -->
+  <section id="ai-redteam">
+    <h2>AI red team</h2>
+
+    <h3>Adversarial testing harness for LLMs and RAG pipelines</h3>
+    <p class="meta">Personal project · <a href="https://github.com/YOURUSERNAME/REPO">Source</a></p>
+
+    <p><strong>The problem.</strong>
+      Organizations are putting internal documents behind RAG chatbots faster than they're testing
+      them. The failure modes — indirect prompt injection through retrieved content, information
+      disclosure across access boundaries, jailbreaks that survive system-prompt hardening — aren't
+      caught by conventional application security testing.
+    </p>
+
+    <p><strong>What I built.</strong>
+      A reproducible harness that runs adversarial test suites against self-hosted models:
+    </p>
+    <ul>
+      <li>Self-hosted Llama 3 via Ollama, so tests run without sending anything to a third-party API</li>
+      <li>Test suites built with Garak, Promptfoo, and PyRIT, mapped to the OWASP LLM Top 10</li>
+      <li>Measured success rates per technique rather than pass/fail, so mitigations can be compared</li>
+      <li>A demonstrated indirect prompt-injection attack against a RAG vector store, plus a
+          mitigation that measurably reduced the attack success rate</li>
+    </ul>
+
+    <!-- Optional: a results table or a diagram of the injection path
+         (poisoned doc -> vector store -> retrieval -> model -> action). -->
+    <figure>
+      <img src="img/redteam-injection-path.png" alt="Indirect prompt injection path: a poisoned document is ingested into the vector store, retrieved as context for a user query, and its embedded instructions are followed by the model.">
+      <figcaption>Indirect injection path through the retrieval layer.</figcaption>
+    </figure>
+
+    <p><strong>Decisions and tradeoffs.</strong>
+      <!-- Candidates: why self-hosted rather than a hosted API; why measure success rate
+           instead of binary pass/fail; which mitigation you chose and what it cost in
+           answer quality; what the harness still doesn't catch. -->
+      TODO
+    </p>
+
+    <p><strong>Writeup.</strong>
+      <a href="writing.html">Full technical writeup →</a>
+    </p>
+
+    <p class="stack">Ollama · Llama 3 · Garak · Promptfoo · PyRIT · OWASP LLM Top 10</p>
+  </section>
+
+  <!-- ============================================================
+       PROJECT 3
+       ============================================================ -->
+  <section id="securelab">
+    <h2>DevSecOps</h2>
+
+    <h3>SecureLab — CI/CD and Kubernetes lab</h3>
+    <p class="meta">Personal project · <a href="https://github.com/YOURUSERNAME/securelab">Source</a></p>
+
+    <p><strong>The problem.</strong>
+      <!-- 2–3 sentences: what you wanted to understand about pipeline security
+           that you couldn't learn from reading. -->
+      TODO
+    </p>
+
+    <p><strong>What I built.</strong></p>
+    <ul>
+      <li>CI/CD pipeline on GitHub Actions building and deploying containerized workloads</li>
+      <li>Infrastructure defined in Terraform, state managed in Terraform Cloud</li>
+      <li>Kubernetes cluster provisioned with kind</li>
+      <li>Trivy image and filesystem scanning gating the pipeline</li>
+      <li>Drift detection against declared infrastructure state</li>
+      <li>Prometheus and Grafana for cluster and pipeline monitoring</li>
+    </ul>
+
+    <figure>
+      <img src="img/securelab-architecture.png" alt="SecureLab architecture: source commit triggers a GitHub Actions build, images are scanned by Trivy before deployment to a Kubernetes cluster, with Terraform managing infrastructure and Prometheus and Grafana monitoring the result.">
+      <figcaption>SecureLab architecture.</figcaption>
+    </figure>
+
+    <p><strong>Decisions and tradeoffs.</strong>
+      <!-- Candidates: kind vs EKS and what that costs you in realism; Trivy vs Grype;
+           where you put the scan gate and why; what broke and how you found it. -->
+      TODO
+    </p>
+
+    <p class="stack">GitHub Actions · Docker · Terraform · Terraform Cloud · Kubernetes (kind) · Trivy · Prometheus · Grafana</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>Raleigh, NC · Last updated August 2026</p>
+</footer>
+
+</body>
+</html>
