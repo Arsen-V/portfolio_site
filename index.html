@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YOUR NAME — Cloud &amp; AI Security</title>
+<meta name="description" content="Cybersecurity senior at NC State working on cloud security, DevSecOps, and AI security. Graduating May 2027.">
+
+<meta property="og:title" content="YOUR NAME — Cloud &amp; AI Security">
+<meta property="og:description" content="Cybersecurity senior at NC State working on cloud security, DevSecOps, and AI security. Graduating May 2027.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://YOURDOMAIN">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231F4BA8'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <h1 class="name">YOUR NAME</h1>
+
+  <dl class="record">
+    <div><dt>Focus</dt><dd>Cloud security · DevSecOps · AI security</dd></div>
+    <div><dt>Now</dt><dd>Security intern, CCC Intelligent Solutions</dd></div>
+    <div><dt>Graduating</dt><dd>May 2027 — NC State, B.S. Computer Science</dd></div>
+    <div><dt>Work auth</dt><dd>US permanent resident — no sponsorship needed</dd></div>
+    <div><dt>Based in</dt><dd>Raleigh, NC</dd></div>
+  </dl>
+
+  <nav>
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="writing.html">Writing</a>
+    <a href="resume.pdf">Résumé</a>
+    <a href="https://github.com/YOURUSERNAME">GitHub</a>
+    <a href="https://linkedin.com/in/YOURPROFILE">LinkedIn</a>
+  </nav>
+</header>
+
+<main>
+
+  <section>
+    <h2>What I do</h2>
+    <p>
+      I build security automation and break AI systems on purpose. At ElevateBio I engineered a
+      pipeline that pulls vulnerabilities from CrowdStrike Falcon Spotlight and Vanta, scores them
+      against a CVSS-vector rubric, and auto-generates risk-acceptance justifications — it cleared
+      1,611 findings ahead of an ISO 27001 audit and flagged 370 as patch-now.
+    </p>
+    <p>
+      Alongside that I run a red-team harness against self-hosted LLMs, testing prompt injection and
+      jailbreak techniques against the OWASP LLM Top 10 and writing up the mitigations that actually
+      hold. I'm looking for full-time cloud security and DevSecOps work starting May 2027.
+    </p>
+  </section>
+
+  <section>
+    <h2>Selected work</h2>
+
+    <article class="entry">
+      <span class="tag">Vulnerability management</span>
+      <h3><a href="projects.html#risk-pipeline">Automated vulnerability risk-acceptance pipeline</a></h3>
+      <p>
+        Python pipeline that pulls findings from two sources over OAuth, deduplicates them, scores
+        against a CVSS-vector rubric, and writes risk-acceptance justifications with named
+        compensating controls. Runs weekly on GitHub Actions.
+      </p>
+      <p class="stack">Python · GitHub Actions · CrowdStrike Spotlight API · Vanta API · CISA KEV</p>
+    </article>
+
+    <article class="entry">
+      <span class="tag">AI red team</span>
+      <h3><a href="projects.html#ai-redteam">AI red-team harness</a></h3>
+      <p>
+        Reproducible harness for adversarial testing of self-hosted LLMs and RAG pipelines. Documents
+        prompt-injection and jailbreak bypasses with measured success rates, including an indirect
+        injection against a RAG vector store and a mitigation that cut the attack rate.
+      </p>
+      <p class="stack">Ollama · Llama 3 · Garak · Promptfoo · PyRIT · OWASP LLM Top 10</p>
+    </article>
+
+    <article class="entry">
+      <span class="tag">DevSecOps</span>
+      <h3><a href="projects.html#securelab">SecureLab — CI/CD &amp; Kubernetes lab</a></h3>
+      <p>
+        A CI/CD pipeline built to be attacked and hardened: image scanning, infrastructure drift
+        detection, and monitoring wired end to end.
+      </p>
+      <p class="stack">GitHub Actions · Docker · Terraform · Kubernetes · Trivy · Prometheus · Grafana</p>
+    </article>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <article class="entry">
+      <h3>Security Intern — CCC Intelligent Solutions</h3>
+      <p class="meta">Aug 2026 – Dec 2026 · Remote</p>
+      <p>Rotational internship across DevSecOps, GRC, and security operations.</p>
+    </article>
+
+    <article class="entry">
+      <h3>Information Security Engineer Intern — ElevateBio</h3>
+      <p class="meta">Jun 2026 – Aug 2026 · Durham, NC</p>
+      <p>
+        Built the risk-acceptance pipeline above. Contributed to investigations across CrowdStrike
+        Falcon, Palo Alto Panorama, NG-SIEM, Meraki, and Axonius, including a device-attribution
+        chain that resolved a suspected malware alert as a WeChat false positive. Worked through
+        690+ Obsidian posture findings, separating real MFA gaps from service-account and
+        Okta-federated noise.
+      </p>
+    </article>
+
+    <article class="entry">
+      <h3>Cybersecurity Analyst — NC State OIT</h3>
+      <p class="meta">Jun 2025 – Jun 2026 · Raleigh, NC</p>
+      <p>
+        Mapped campus security controls to NIST CSF categories and 800-53 control families, ran
+        third-party vendor risk assessments, and reported compliance posture to leadership weekly.
+      </p>
+    </article>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <ul>
+      <li>SANS SEC495 — Building &amp; Securing RAG and Agentic RAG (Jul 2026)</li>
+      <li>CompTIA Security+ SY0-701 (Feb 2026)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>
+      <a href="mailto:YOU@YOURDOMAIN">YOU@YOURDOMAIN</a> ·
+      <a href="https://github.com/YOURUSERNAME">GitHub</a> ·
+      <a href="https://linkedin.com/in/YOURPROFILE">LinkedIn</a>
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>Raleigh, NC · Last updated August 2026</p>
+</footer>
+
+</body>
+</html>
