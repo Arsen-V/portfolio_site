@@ -181,6 +181,9 @@ body.is-docked .rail { opacity: 1; pointer-events: auto; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* Optical centering: true center reads as slightly low, so the bottom padding
+     pulls the centered stack up by half its value without breaking the centering. */
+  padding-bottom: clamp(48px, 10vh, 104px);
 }
 
 .mark {
