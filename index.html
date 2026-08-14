@@ -1,151 +1,324 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Arsen Vaneev — Cloud &amp; AI Security</title>
+<title>Arsen Vaneev — Cloud Security &amp; DevSecOps</title>
 <meta name="description" content="Cybersecurity senior at NC State working on cloud security, DevSecOps, and AI security. Graduating May 2027.">
 
-<meta property="og:title" content="Arsen Vaneev — Cloud &amp; AI Security">
+<meta property="og:title" content="Arsen Vaneev — Cloud Security &amp; DevSecOps">
 <meta property="og:description" content="Cybersecurity senior at NC State working on cloud security, DevSecOps, and AI security. Graduating May 2027.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://YOURDOMAIN">
+<meta property="og:url" content="https://arsenvaneev.com">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231F4BA8'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d0d10'/><g fill='none' stroke='%23d95f57' stroke-width='1.8' stroke-linecap='square'><path d='M11 2h10l9 9v10l-9 9H11l-9-9V11z'/><path d='M13.5 11 9.5 16l4 5'/><path d='M18.5 11l4 5-4 5'/><path d='M16 15.2v1.6'/></g></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Michroma&display=swap">
 <link rel="stylesheet" href="style.css">
+
+<script>
+  // Applied before first paint so a remembered light theme doesn't flash dark.
+  try {
+    var t = localStorage.getItem("theme");
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
 </head>
 <body>
 
-<header class="masthead">
-  <h1 class="name">Arsen Vaneev</h1>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-theme" viewBox="0 0 256 256"><path d="M201.54,54.46A104,104,0,0,0,54.46,201.54,104,104,0,0,0,201.54,54.46ZM184,195.87a87.16,87.16,0,0,1-16,10.5V99.31l16-16Zm-80-32.56,16-16v68.28a88.37,88.37,0,0,1-16-3ZM88,206.37a87,87,0,0,1-16.3-10.76L88,179.31Zm48-75.06,16-16v97.32a88.37,88.37,0,0,1-16,3ZM40,128A88,88,0,0,1,184.3,60.39L60.38,184.31A87.34,87.34,0,0,1,40,128Zm160,50.59V77.41a88,88,0,0,1,0,101.18Z"/></symbol>
+  <symbol id="i-terminal" viewBox="0 0 256 256"><path d="M128,128a8,8,0,0,1-3,6.25l-40,32a8,8,0,1,1-10-12.5L107.19,128,75,102.25a8,8,0,1,1,10-12.5l40,32A8,8,0,0,1,128,128Zm48,24H136a8,8,0,0,0,0,16h40a8,8,0,0,0,0-16Zm56-96V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56ZM216,200V56H40V200H216Z"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 256 256"><path d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM216,72v41.61A184,184,0,0,1,128,136a184.07,184.07,0,0,1-88-22.38V72Zm0,128H40V131.64A200.19,200.19,0,0,0,128,152a200.25,200.25,0,0,0,88-20.37V200ZM104,112a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H112A8,8,0,0,1,104,112Z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 256 256"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 256 256"><path d="M197.58,129.06,146,110l-19-51.62a15.92,15.92,0,0,0-29.88,0L78,110l-51.62,19a15.92,15.92,0,0,0,0,29.88L78,178l19,51.62a15.92,15.92,0,0,0,29.88,0L146,178l51.62-19a15.92,15.92,0,0,0,0-29.88ZM137,164.22a8,8,0,0,0-4.74,4.74L112,223.85,91.78,169A8,8,0,0,0,87,164.22L32.15,144,87,123.78A8,8,0,0,0,91.78,119L112,64.15,132.22,119a8,8,0,0,0,4.74,4.74L191.85,144ZM144,40a8,8,0,0,1,8-8h16V16a8,8,0,0,1,16,0V32h16a8,8,0,0,1,0,16H184V64a8,8,0,0,1-16,0V48H152A8,8,0,0,1,144,40ZM248,88a8,8,0,0,1-8,8h-8v8a8,8,0,0,1-16,0V96h-8a8,8,0,0,1,0-16h8V72a8,8,0,0,1,16,0v8h8A8,8,0,0,1,248,88Z"/></symbol>
+  <symbol id="i-github" viewBox="0 0 256 256"><path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 256 256"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"/></symbol>
+  <symbol id="i-file" viewBox="0 0 256 256"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 256 256"><path d="M231.87,114l-168-95.89A16,16,0,0,0,40.92,37.34L71.55,128,40.92,218.67A16,16,0,0,0,56,240a16.15,16.15,0,0,0,7.93-2.1l167.92-96.05a16,16,0,0,0,.05-27.89ZM56,224a.56.56,0,0,0,0-.12L85.74,136H144a8,8,0,0,0,0-16H85.74L56.06,32.16A.46.46,0,0,0,56,32l168,95.83Z"/></symbol>
+</svg>
 
-  <dl class="record">
-    <div><dt>Focus</dt><dd>Cloud security · DevSecOps · AI security</dd></div>
-    <div><dt>Now</dt><dd>Security intern, CCC Intelligent Solutions</dd></div>
-    <div><dt>Graduating</dt><dd>May 2027 — NC State, B.S. Computer Science</dd></div>
-    <div><dt>Work auth</dt><dd>US permanent resident — no sponsorship needed</dd></div>
-    <div><dt>Based in</dt><dd>Raleigh, NC</dd></div>
-  </dl>
+<div class="page">
 
-  <nav>
-    <a href="index.html" aria-current="page">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="writing.html">Writing</a>
-    <a href="resume.pdf">Résumé</a>
-    <a href="https://github.com/YOURUSERNAME">GitHub</a>
-    <a href="https://linkedin.com/in/YOURPROFILE">LinkedIn</a>
+  <button type="button" class="theme-toggle" id="theme-toggle" title="Toggle light and dark">
+    <svg class="icon" aria-hidden="true"><use href="#i-theme"/></svg>
+    <span class="theme-toggle-label" id="theme-toggle-label">LIGHT</span>
+  </button>
+
+  <nav class="rail" aria-label="Sections">
+    <a href="#projects" title="Projects"><svg class="icon" aria-hidden="true"><use href="#i-terminal"/></svg><span class="rail-label">Projects</span></a>
+    <a href="#experience" title="Experience"><svg class="icon" aria-hidden="true"><use href="#i-briefcase"/></svg><span class="rail-label">Experience</span></a>
+    <a href="#person" title="About me"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg><span class="rail-label">About me</span></a>
+    <a href="#ai" class="accent" title="AI Arsen"><svg class="icon" aria-hidden="true"><use href="#i-sparkle"/></svg><span class="rail-label">AI Arsen</span></a>
   </nav>
-</header>
 
-<main>
+  <main>
 
-  <section>
-    <h2>What I do</h2>
-    <p>
-      I build security automation and break AI systems on purpose. At ElevateBio I engineered a
-      pipeline that pulls vulnerabilities from CrowdStrike Falcon Spotlight and Vanta, scores them
-      against a CVSS-vector rubric, and auto-generates risk-acceptance justifications — it cleared
-      1,611 findings ahead of an ISO 27001 audit and flagged 370 as patch-now.
-    </p>
-    <p>
-      Alongside that I run a red-team harness against self-hosted LLMs, testing prompt injection and
-      jailbreak techniques against the OWASP LLM Top 10 and writing up the mitigations that actually
-      hold. I'm looking for full-time cloud security and DevSecOps work starting May 2027.
-    </p>
-  </section>
+    <section id="top" class="hero">
+      <a href="#top" class="mark" title="Arsen Vaneev">
+        <svg width="34" height="34" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" aria-label="Arsen Vaneev">
+          <path d="M11 2h10l9 9v10l-9 9H11l-9-9V11z"></path>
+          <path d="M13.5 11 9.5 16l4 5"></path>
+          <path d="M18.5 11l4 5-4 5"></path>
+          <path d="M16 15.2v1.6"></path>
+        </svg>
+      </a>
+      <h1><span>Arsen Vaneev</span></h1>
+      <p class="tagline">Cloud security, DevSecOps, AI security, automation.</p>
+      <div class="hero-nav">
+        <a href="#projects"><svg class="icon" aria-hidden="true"><use href="#i-terminal"/></svg>Projects</a>
+        <a href="#experience"><svg class="icon" aria-hidden="true"><use href="#i-briefcase"/></svg>Experience</a>
+        <a href="#person"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg>About me</a>
+        <a href="#ai" class="accent"><svg class="icon" aria-hidden="true"><use href="#i-sparkle"/></svg>AI Arsen</a>
+      </div>
+    </section>
 
-  <section>
-    <h2>Selected work</h2>
+    <section id="projects">
+      <div class="sec-head">
+        <span class="sec-head-left">
+          <span class="bin bin-l" aria-hidden="true">0110100101101110011010</span>
+          <span class="sec-num">01</span>
+        </span>
+        <h2>Projects</h2>
+        <span class="bin bin-r" aria-hidden="true">0100110101100001011001</span>
+      </div>
 
-    <article class="entry">
-      <span class="tag">Vulnerability management</span>
-      <h3><a href="projects.html#risk-pipeline">Automated vulnerability risk-acceptance pipeline</a></h3>
-      <p>
-        Python pipeline that pulls findings from two sources over OAuth, deduplicates them, scores
-        against a CVSS-vector rubric, and writes risk-acceptance justifications with named
-        compensating controls. Runs weekly on GitHub Actions.
-      </p>
-      <p class="stack">Python · GitHub Actions · CrowdStrike Spotlight API · Vanta API · CISA KEV</p>
-    </article>
+      <div class="projects">
 
-    <article class="entry">
-      <span class="tag">AI red team</span>
-      <h3><a href="projects.html#ai-redteam">AI red-team harness</a></h3>
-      <p>
-        Reproducible harness for adversarial testing of self-hosted LLMs and RAG pipelines. Documents
-        prompt-injection and jailbreak bypasses with measured success rates, including an indirect
-        injection against a RAG vector store and a mitigation that cut the attack rate.
-      </p>
-      <p class="stack">Ollama · Llama 3 · Garak · Promptfoo · PyRIT · OWASP LLM Top 10</p>
-    </article>
+        <article class="project">
+          <div class="diagram">
+            <div class="diagram-slot">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+              Architecture diagram
+            </div>
+          </div>
+          <h3>Vulnerability Risk-Acceptance Engine</h3>
+          <p class="stack">Python · GitHub Actions · CrowdStrike Spotlight · Vanta · CISA KEV</p>
+          <p>Pulls findings from two scanners over OAuth, deduplicates across both, and scores each CVE against a CVSS-vector rubric before writing a risk-acceptance justification that names the specific compensating control. Cleared 1,611 vulnerabilities ahead of an ISO 27001 audit and separated out 370 that needed patching instead.</p>
+          <div class="project-links">
+            <a href="https://github.com/Arsen-V/Automated_Vulnerability_Risk_Acceptance_Engine" target="_blank" rel="noopener">Repository ↗</a>
+          </div>
+        </article>
 
-    <article class="entry">
-      <span class="tag">DevSecOps</span>
-      <h3><a href="projects.html#securelab">SecureLab — CI/CD &amp; Kubernetes lab</a></h3>
-      <p>
-        A CI/CD pipeline built to be attacked and hardened: image scanning, infrastructure drift
-        detection, and monitoring wired end to end.
-      </p>
-      <p class="stack">GitHub Actions · Docker · Terraform · Kubernetes · Trivy · Prometheus · Grafana</p>
-    </article>
-  </section>
+        <article class="project">
+          <div class="diagram">
+            <div class="diagram-slot">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+              Architecture diagram
+            </div>
+          </div>
+          <h3>AI Red-Team Harness</h3>
+          <p class="stack">Ollama · Llama 3 · Garak · Promptfoo · PyRIT · OWASP LLM Top 10</p>
+          <p>Reproducible adversarial testing for self-hosted LLMs and RAG pipelines. Measures a success rate per technique rather than pass/fail, so mitigations can be compared — including an indirect prompt injection through a poisoned vector store and the fix that measurably cut its attack rate.</p>
+          <div class="project-links">
+            <a href="https://github.com/Arsen-V/AI_Red_Team_Harness" target="_blank" rel="noopener">Repository ↗</a>
+          </div>
+        </article>
 
-  <section>
-    <h2>Experience</h2>
+        <article class="project">
+          <div class="diagram">
+            <div class="diagram-slot">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+              Architecture diagram
+            </div>
+          </div>
+          <h3>SecureLab</h3>
+          <p class="stack">Actions · Docker · Terraform · Kubernetes · Trivy · Grafana</p>
+          <p>A CI/CD pipeline built to be attacked and then hardened: Trivy image and filesystem scanning gating every build, Terraform-declared infrastructure with drift detection against live state, and Prometheus and Grafana wired end to end over a kind cluster.</p>
+          <div class="project-links">
+            <a href="https://github.com/Arsen-V/SecureLab" target="_blank" rel="noopener">Repository ↗</a>
+          </div>
+        </article>
 
-    <article class="entry">
-      <h3>Security Intern — CCC Intelligent Solutions</h3>
-      <p class="meta">Aug 2026 – Dec 2026 · Remote</p>
-      <p>Rotational internship across DevSecOps, GRC, and security operations.</p>
-    </article>
+      </div>
+    </section>
 
-    <article class="entry">
-      <h3>Information Security Engineer Intern — ElevateBio</h3>
-      <p class="meta">Jun 2026 – Aug 2026 · Durham, NC</p>
-      <p>
-        Built the risk-acceptance pipeline above. Contributed to investigations across CrowdStrike
-        Falcon, Palo Alto Panorama, NG-SIEM, Meraki, and Axonius, including a device-attribution
-        chain that resolved a suspected malware alert as a WeChat false positive. Worked through
-        690+ Obsidian posture findings, separating real MFA gaps from service-account and
-        Okta-federated noise.
-      </p>
-    </article>
+    <section id="experience">
+      <div class="sec-head">
+        <span class="sec-head-left">
+          <span class="bin bin-l" aria-hidden="true">0110100101101110011010</span>
+          <span class="sec-num">02</span>
+        </span>
+        <h2>Experience</h2>
+        <span class="bin bin-r" aria-hidden="true">0100110101100001011001</span>
+      </div>
 
-    <article class="entry">
-      <h3>Cybersecurity Analyst — NC State OIT</h3>
-      <p class="meta">Jun 2025 – Jun 2026 · Raleigh, NC</p>
-      <p>
-        Mapped campus security controls to NIST CSF categories and 800-53 control families, ran
-        third-party vendor risk assessments, and reported compliance posture to leadership weekly.
-      </p>
-    </article>
-  </section>
+      <div class="roles">
 
-  <section>
-    <h2>Certifications</h2>
-    <ul>
-      <li>SANS SEC495 — Building &amp; Securing RAG and Agentic RAG (Jul 2026)</li>
-      <li>CompTIA Security+ SY0-701 (Feb 2026)</li>
-    </ul>
-  </section>
+        <div class="role">
+          <p class="meta">Aug – Dec 2026 · Remote</p>
+          <h3>Security Intern — CCC Intelligent Solutions</h3>
+          <p>Rotational internship across DevSecOps, GRC, and security operations.</p>
+        </div>
 
-  <section>
-    <h2>Contact</h2>
-    <p>
-      <a href="mailto:arsen@arsenvaneev.com">arsen@arsenvaneev.com</a> ·
-      <a href="https://github.com/Arsen-V">GitHub</a> ·
-      <a href="https://www.linkedin.com/in/arsen-v/E">LinkedIn</a>
-    </p>
-  </section>
+        <hr class="subrule">
 
-</main>
+        <div class="role">
+          <p class="meta">Jun – Aug 2026 · Durham, NC</p>
+          <h3>Information Security Engineer Intern — ElevateBio</h3>
+          <p>Built the risk-acceptance pipeline above. Contributed to investigations across CrowdStrike Falcon, Palo Alto Panorama, NG-SIEM, Meraki, and Axonius, including a device-attribution chain that resolved a suspected malware alert as a WeChat false positive. Worked through 690+ posture findings, separating real MFA gaps from service-account and Okta-federated noise.</p>
+        </div>
 
-<footer>
-  <p>Raleigh, NC · Last updated August 2026</p>
-</footer>
+        <hr class="subrule">
+
+        <div class="role">
+          <p class="meta">Jun 2025 – Jun 2026 · Raleigh, NC</p>
+          <h3>Cybersecurity Analyst — NC State OIT</h3>
+          <p>Mapped campus security controls to NIST CSF categories and 800-53 control families, ran third-party vendor risk assessments, and reported compliance posture to leadership weekly.</p>
+        </div>
+
+      </div>
+      <p class="footnote">B.S. Computer Science, NC State · Graduating May 2027</p>
+    </section>
+
+    <section id="person">
+      <div class="sec-head">
+        <span class="sec-head-left">
+          <span class="bin bin-l" aria-hidden="true">0110100101101110011010</span>
+          <span class="sec-num">03</span>
+        </span>
+        <h2>About me</h2>
+        <span class="bin bin-r" aria-hidden="true">0100110101100001011001</span>
+      </div>
+
+      <p class="about-lede">I build security automation and break AI systems on purpose. Most of my work starts the same way — a process someone runs by hand every quarter, or a system nobody has tried to attack yet — and ends with something reviewable that runs on a schedule. I care more about a finding someone else can act on without me in the room than about the finding itself.</p>
+
+      <hr class="subrule">
+
+      <div class="about-cols">
+        <div>
+          <h3>Focus</h3>
+          <p>Cloud security, DevSecOps, and AI security. Looking for full-time work starting May 2027.</p>
+        </div>
+        <div>
+          <h3>Certifications</h3>
+          <p>CompTIA Security+ (SY0-701), Feb 2026. SANS SEC495 — Building &amp; Securing RAG and Agentic RAG, Jul 2026.</p>
+        </div>
+        <div>
+          <h3>Logistics</h3>
+          <p>Based in Raleigh, NC. US permanent resident — no sponsorship needed.</p>
+        </div>
+      </div>
+
+      <hr class="subrule subrule-spaced">
+
+      <div class="contact">
+        <a href="https://github.com/Arsen-V" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
+        <a href="https://www.linkedin.com/in/arsen-v" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
+        <a href="resume.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>Résumé</a>
+        <a href="mailto:arsen@arsenvaneev.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Email</a>
+      </div>
+    </section>
+
+    <section id="ai">
+      <div class="sec-head">
+        <span class="sec-head-left">
+          <span class="bin bin-l" aria-hidden="true">0110100101101110011010</span>
+          <span class="sec-num">04</span>
+        </span>
+        <h2>Talk to AI Arsen</h2>
+        <span class="bin bin-r" aria-hidden="true">0100110101100001011001</span>
+      </div>
+
+      <div class="ai-card">
+        <span class="badge">Under construction</span>
+        <div class="ai-row">
+          <input type="text" disabled aria-label="Ask AI Arsen a question" placeholder="Ask about a project, a stack, or a trade-off…">
+          <button type="button" disabled aria-label="Send">
+            <svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>
+          </button>
+        </div>
+        <p class="ai-note">Planned: RAG over write-ups + résumé · citation-required answers · rate limited<br>Until then: <a href="mailto:arsen@arsenvaneev.com">email the human</a>.</p>
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById("theme-toggle");
+  var label = document.getElementById("theme-toggle-label");
+
+  function paint() {
+    label.textContent = root.getAttribute("data-theme") === "light" ? "DARK" : "LIGHT";
+  }
+  btn.addEventListener("click", function () {
+    var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    paint();
+  });
+  paint();
+
+  var hero = document.querySelector(".hero-nav");
+  var ids = ["projects", "experience", "person", "ai"];
+  var links = {};
+  ids.forEach(function (id) {
+    links[id] = document.querySelector('.rail a[href="#' + id + '"]');
+  });
+
+  var docked = null;
+  var active = null;
+  var queued = false;
+
+  function measure() {
+    queued = false;
+
+    var r = hero.getBoundingClientRect();
+    // A zero-size rect means layout hasn't settled; leave the last state alone.
+    if (r.height > 0 && r.width > 0) {
+      var d = r.top < 72;
+      if (d !== docked) {
+        docked = d;
+        document.body.classList.toggle("is-docked", d);
+      }
+    }
+
+    var line = Math.min(window.innerHeight * 0.42, 320);
+    var hit = "";
+    ids.forEach(function (id) {
+      var s = document.getElementById(id);
+      var sr = s.getBoundingClientRect();
+      if (sr.height > 0 && sr.top <= line && sr.bottom > line * 0.5) hit = id;
+    });
+
+    // The last section is too short to ever push its top past the line, so at
+    // the end of the page it would never light up. Bottom-out claims it.
+    if (innerHeight + Math.ceil(scrollY) >= document.documentElement.scrollHeight - 2) {
+      hit = ids[ids.length - 1];
+    }
+
+    if (hit !== active) {
+      if (links[active]) {
+        links[active].classList.remove("is-active");
+        links[active].removeAttribute("aria-current");
+      }
+      if (links[hit]) {
+        links[hit].classList.add("is-active");
+        links[hit].setAttribute("aria-current", "true");
+      }
+      active = hit;
+    }
+  }
+
+  function schedule() {
+    if (!queued) {
+      queued = true;
+      requestAnimationFrame(measure);
+    }
+  }
+
+  addEventListener("scroll", schedule, { passive: true });
+  addEventListener("resize", schedule);
+  measure();
+})();
+</script>
 
 </body>
 </html>
