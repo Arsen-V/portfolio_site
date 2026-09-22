@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Arsen Vaneev — Cloud Security &amp; DevSecOps</title>
+<title>Arsen Vaneev | Cloud Security &amp; DevSecOps</title>
 <meta name="description" content="Cybersecurity senior at NC State working on cloud security, DevSecOps, and AI security. Graduating May 2027.">
 
-<meta property="og:title" content="Arsen Vaneev — Cloud Security &amp; DevSecOps">
+<meta property="og:title" content="Arsen Vaneev | Cloud Security &amp; DevSecOps">
 <meta property="og:description" content="Cybersecurity senior at NC State working on cloud security, DevSecOps, and AI security. Graduating May 2027.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://arsenvaneev.com">
@@ -97,7 +97,9 @@
           </div>
           <h3>Vulnerability Risk-Acceptance Engine</h3>
           <p class="stack">Python · GitHub Actions · CrowdStrike Spotlight · Vanta · CISA KEV</p>
-          <p>Pulls findings from two scanners over OAuth, deduplicates across both, and scores each CVE against a CVSS-vector rubric before writing a risk-acceptance justification that names the specific compensating control. Cleared 1,611 vulnerabilities ahead of an ISO 27001 audit and separated out 370 that needed patching instead.</p>
+          <p>During my internship at ElevateBio, I was asked to automate risk acceptance ahead of an ISO 27001 audit. I had the acceptance criteria and a rough scope. My manager's first plan was to configure an enterprise AI agent to make the decisions and write the reports.</p>
+          <p>After weeks of trial and error, reading documentation and blog posts, and debugging, I came to a different conclusion. The point was to pass an audit, and an auditor has to trace every accepted risk back to the reasoning behind it. Code gives you that line by line. An agent's output is much harder to defend. I pitched a programmatic design to a senior security officer, he agreed, and I built it.</p>
+          <p>The pipeline pulls findings from CrowdStrike Spotlight and Vanta, deduplicates by CVE, scores each one against a CVSS-vector rubric, and writes a justification naming the compensating control. It cleared 1,611 vulnerabilities before the audit and flagged 370 for patching. It runs on a schedule, and the company still uses it. The AI did end up in the project, just where it fit: an assistant on top that lets engineers ask about their posture in plain English.</p>
           <div class="project-links">
             <a href="https://github.com/Arsen-V/Automated_Vulnerability_Risk_Acceptance_Engine" target="_blank" rel="noopener">Repository ↗</a>
           </div>
@@ -110,9 +112,9 @@
               Architecture diagram
             </div>
           </div>
-          <h3>AI Red-Team Harness</h3>
+          <h3>AI Red-Team Harness (in progress)</h3>
           <p class="stack">Ollama · Llama 3 · Garak · Promptfoo · PyRIT · OWASP LLM Top 10</p>
-          <p>Reproducible adversarial testing for self-hosted LLMs and RAG pipelines. Measures a success rate per technique rather than pass/fail, so mitigations can be compared — including an indirect prompt injection through a poisoned vector store and the fix that measurably cut its attack rate.</p>
+          <p>In progress. A test suite for attacking self-hosted and hosted LLMs and RAG pipelines, built with Garak, Promptfoo, and PyRIT and mapped to the OWASP LLM Top 10. I learned to build RAG systems in SANS SEC495, and this is where I try to break them. The focus is indirect prompt injection through poisoned documents in a vector store, and measuring how much a mitigation actually lowers the attack success rate.</p>
           <div class="project-links">
             <a href="https://github.com/Arsen-V/AI_Red_Team_Harness" target="_blank" rel="noopener">Repository ↗</a>
           </div>
@@ -127,7 +129,9 @@
           </div>
           <h3>SecureLab</h3>
           <p class="stack">Actions · Docker · Terraform · Kubernetes · Trivy · Grafana</p>
-          <p>A CI/CD pipeline built to be attacked and then hardened: Trivy image and filesystem scanning gating every build, Terraform-declared infrastructure with drift detection against live state, and Prometheus and Grafana wired end to end over a kind cluster.</p>
+          <p>A passion project to get hands-on with DevSecOps tooling. A friend working in security at a big company told me to learn containers and Kubernetes, so I did.</p>
+          <p>I'm not running a huge enterprise (yet), so a real cluster made no sense. Then I found kind, short for Kubernetes in Docker, a CLI tool that runs each Kubernetes node as a Docker container. I started small: a GitHub Actions workflow that deployed a basic Python app into a kind cluster. That's where YAML finally clicked for me.</p>
+          <p>Then I layered security on top: secrets management, Trivy scanning on every build, and Prometheus and Grafana for monitoring.</p>
           <div class="project-links">
             <a href="https://github.com/Arsen-V/SecureLab" target="_blank" rel="noopener">Repository ↗</a>
           </div>
@@ -150,7 +154,7 @@
 
         <div class="role">
           <p class="meta">Aug – Dec 2026 · Remote</p>
-          <h3>Security Intern — CCC Intelligent Solutions</h3>
+          <h3>Security Intern, CCC Intelligent Solutions</h3>
           <p>Rotational internship across DevSecOps, GRC, and security operations.</p>
         </div>
 
@@ -158,7 +162,7 @@
 
         <div class="role">
           <p class="meta">Jun – Aug 2026 · Durham, NC</p>
-          <h3>Information Security Engineer Intern — ElevateBio</h3>
+          <h3>Information Security Engineer Intern, ElevateBio</h3>
           <p>Built the risk-acceptance pipeline above. Contributed to investigations across CrowdStrike Falcon, Palo Alto Panorama, NG-SIEM, Meraki, and Axonius, including a device-attribution chain that resolved a suspected malware alert as a WeChat false positive. Worked through 690+ posture findings, separating real MFA gaps from service-account and Okta-federated noise.</p>
         </div>
 
@@ -166,7 +170,7 @@
 
         <div class="role">
           <p class="meta">Jun 2025 – Jun 2026 · Raleigh, NC</p>
-          <h3>Cybersecurity Analyst — NC State OIT</h3>
+          <h3>Cybersecurity Analyst, NC State OIT</h3>
           <p>Mapped campus security controls to NIST CSF categories and 800-53 control families, ran third-party vendor risk assessments, and reported compliance posture to leadership weekly.</p>
         </div>
 
@@ -184,7 +188,7 @@
         <span class="bin bin-r" aria-hidden="true">0100110101100001011001</span>
       </div>
 
-      <p class="about-lede">I build security automation and break AI systems on purpose. Most of my work starts the same way — a process someone runs by hand every quarter, or a system nobody has tried to attack yet — and ends with something reviewable that runs on a schedule. I care more about a finding someone else can act on without me in the room than about the finding itself.</p>
+      <p class="about-lede">I build security automation and break AI systems on purpose. Most of my work starts the same way: a process someone runs by hand every quarter, or a system nobody has tried to attack yet. It ends with something reviewable that runs on a schedule. I care more about a finding someone else can act on without me in the room than about the finding itself.</p>
 
       <hr class="subrule">
 
@@ -195,11 +199,11 @@
         </div>
         <div>
           <h3>Certifications</h3>
-          <p>CompTIA Security+ (SY0-701), Feb 2026. SANS SEC495 — Building &amp; Securing RAG and Agentic RAG, Jul 2026.</p>
+          <p>CompTIA Security+ (SY0-701), Feb 2026. SANS SEC495: Building &amp; Securing RAG and Agentic RAG, Jul 2026.</p>
         </div>
         <div>
           <h3>Logistics</h3>
-          <p>Based in Raleigh, NC. US permanent resident — no sponsorship needed.</p>
+          <p>Based in Raleigh, NC. US permanent resident, no sponsorship needed.</p>
         </div>
       </div>
 
