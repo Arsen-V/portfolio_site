@@ -89,12 +89,9 @@
       <div class="projects">
 
         <article class="project">
-          <div class="diagram">
-            <div class="diagram-slot">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-              Architecture diagram
-            </div>
-          </div>
+          <a class="diagram" href="img/risk-engine-diagram.png" target="_blank" rel="noopener">
+            <img src="img/risk-engine-diagram.png" alt="Vulnerability Risk-Acceptance Engine architecture: CrowdStrike Spotlight and Vanta findings are pulled over OAuth, merged and deduplicated by CVE, scored against a five-condition CVSS-vector rubric, and split into 1,611 risk-accepted and 370 patch-now findings in an audit-ready CSV report, all inside a scheduled GitHub Actions workflow." width="1120" height="560" loading="lazy">
+          </a>
           <h3>Vulnerability Risk-Acceptance Engine</h3>
           <p class="stack">Python · GitHub Actions · CrowdStrike Spotlight · Vanta · CISA KEV</p>
           <p>During my internship at ElevateBio, I was asked to automate risk acceptance ahead of an ISO 27001 audit. I had the acceptance criteria and a rough scope. My manager's first plan was to configure an enterprise AI agent to make the decisions and write the reports.</p>
@@ -106,12 +103,9 @@
         </article>
 
         <article class="project">
-          <div class="diagram">
-            <div class="diagram-slot">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-              Architecture diagram
-            </div>
-          </div>
+          <a class="diagram" href="img/red-team-harness-diagram.png" target="_blank" rel="noopener">
+            <img src="img/red-team-harness-diagram.png" alt="AI Red-Team Harness architecture: an attack suite of Garak, Promptfoo, and PyRIT plants a poisoned document in the vector store and queries the retriever; the retrieved content reaches the LLM (Llama 3 on Ollama, local vs. hosted), and responses are scored for success rate per technique. A mitigation step before the LLM is planned." width="1120" height="560" loading="lazy">
+          </a>
           <h3>AI Red-Team Harness (in progress)</h3>
           <p class="stack">Ollama · Llama 3 · Garak · Promptfoo · PyRIT · OWASP LLM Top 10</p>
           <p>In progress. A test suite for attacking self-hosted and hosted LLMs and RAG pipelines, built with Garak, Promptfoo, and PyRIT and mapped to the OWASP LLM Top 10. I learned to build RAG systems in SANS SEC495, and this is where I try to break them. The focus is indirect prompt injection through poisoned documents in a vector store, and measuring how much a mitigation actually lowers the attack success rate.</p>
@@ -121,12 +115,9 @@
         </article>
 
         <article class="project">
-          <div class="diagram">
-            <div class="diagram-slot">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-              Architecture diagram
-            </div>
-          </div>
+          <a class="diagram" href="img/securelab-diagram.png" target="_blank" rel="noopener">
+            <img src="img/securelab-diagram.png" alt="SecureLab architecture: on push, GitHub Actions builds a multi-stage non-root image, scans it with Trivy (HIGH/CRITICAL findings stop the build), and publishes it to Docker Hub. Locally, Terraform Cloud manages a kind cluster of 3 control-plane and 3 worker nodes running the Python app, Prometheus, and Grafana." width="1120" height="560" loading="lazy">
+          </a>
           <h3>SecureLab</h3>
           <p class="stack">Actions · Docker · Terraform · Kubernetes · Trivy · Grafana</p>
           <p>A passion project to get hands-on with DevSecOps tooling. A friend working in security at a big company told me to learn containers and Kubernetes, so I did.</p>
